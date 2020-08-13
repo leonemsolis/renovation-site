@@ -68,3 +68,41 @@ function copyclip(str) {
     document.body.removeChild(el);
     alert("Скопированно: " + str);
 }
+
+$(document).ready(function(){
+    function alignModal(){
+        var modalDialog = $(this).find(".modal-dialog");
+        /* Applying the top margin on modal dialog to align it vertically center */
+        modalDialog.css("margin-top", Math.max(0, ($(window).height() - modalDialog.height()) / 2));
+    }
+    // Align modal when it is displayed
+    $(".modal").on("shown.bs.modal", alignModal);
+    
+    // Align modal when user resize the window
+    $(window).on("resize", function(){
+        $(".modal:visible").each(alignModal);
+    });   
+});
+
+function mobile(mmq) {
+    if(mmq.matches) {   // big screen
+        $("#about").children(".container").children(".row").removeClass("text-lg-left");
+        $("#about").children(".container").children(".row").addClass("text-center");
+
+        $("#about").children(".container").children(".row").children(".col-md-4").children(".container").removeClass("w-50");
+
+        $("#about").children(".container").children(".row").children(".col-md-4").removeClass("d-flex");
+        $("#about").children(".container").children(".row").children(".col-md-4").removeClass("flex-row");
+    } else {            // small screen
+        $("#about").children(".container").children(".row").addClass("text-lg-left");
+        $("#about").children(".container").children(".row").removeClass("text-center");
+        $("#about").children(".container").children(".row").children(".col-md-4").children(".container").addClass("w-50");
+
+        $("#about").children(".container").children(".row").children(".col-md-4").addClass("d-flex");
+        $("#about").children(".container").children(".row").children(".col-md-4").addClass("flex-row");
+    }
+}
+
+var mobileMediaQuery = window.matchMedia("(min-width: 576px)");
+mobile(mobileMediaQuery);
+mobileMediaQuery.addListener(mobile)
