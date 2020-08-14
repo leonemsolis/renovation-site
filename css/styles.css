@@ -598,8 +598,8 @@ pre code {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -0.75rem;
-  margin-left: -0.75rem;
+  /* margin-right: -0.75rem; */
+  /* margin-left: -0.75rem; */
 }
 
 .no-gutters {
@@ -4462,7 +4462,7 @@ input[type=button].btn-block {
 .card-deck .card {
   margin-bottom: 0.75rem;
 }
-@media (min-width: 576px) {
+@media (min-width: 992px) {
   .card-deck {
     display: flex;
     flex-flow: row wrap;
@@ -4480,7 +4480,7 @@ input[type=button].btn-block {
 .card-group > .card {
   margin-bottom: 0.75rem;
 }
-@media (min-width: 576px) {
+@media (min-width: 992px) {
   .card-group {
     display: flex;
     flex-flow: row wrap;
@@ -4522,7 +4522,7 @@ input[type=button].btn-block {
 .card-columns .card {
   margin-bottom: 0.75rem;
 }
-@media (min-width: 576px) {
+@media (min-width: 992px) {
   .card-columns {
     -moz-column-count: 3;
          column-count: 3;
@@ -10007,7 +10007,7 @@ p {
 }
 
 .page-section {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 .page-section h2.section-heading {
   font-size: 2.5rem;

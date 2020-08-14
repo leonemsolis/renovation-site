@@ -88,8 +88,10 @@ function mobile(mmq) {
     if(mmq.matches) {   // big screen
         $("#about").children(".container").children(".row").removeClass("text-lg-left");
         $("#about").children(".container").children(".row").addClass("text-center");
-
         $("#about").children(".container").children(".row").children(".col-md-4").children(".container").removeClass("w-50");
+
+        // $("#about").children(".container").children(".row").children(".col-md-4").children(".fa-stack").removeClass("fa-2x");
+        // $("#about").children(".container").children(".row").children(".col-md-4").children(".fa-stack").addClass("fa-4x");
 
         $("#about").children(".container").children(".row").children(".col-md-4").removeClass("d-flex");
         $("#about").children(".container").children(".row").children(".col-md-4").removeClass("flex-row");
@@ -97,6 +99,9 @@ function mobile(mmq) {
         $("#about").children(".container").children(".row").addClass("text-lg-left");
         $("#about").children(".container").children(".row").removeClass("text-center");
         $("#about").children(".container").children(".row").children(".col-md-4").children(".container").addClass("w-50");
+
+        // $("#about").children(".container").children(".row").children(".col-md-4").children(".fa-stack").addClass("fa-2x");
+        // $("#about").children(".container").children(".row").children(".col-md-4").children(".fa-stack").removeClass("fa-4x");
 
         $("#about").children(".container").children(".row").children(".col-md-4").addClass("d-flex");
         $("#about").children(".container").children(".row").children(".col-md-4").addClass("flex-row");
