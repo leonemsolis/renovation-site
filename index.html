@@ -316,7 +316,7 @@
                     <h2 class="section-heading text-uppercase">Оставьте заявку</h2>
                     <h3 class="section-subheading text-muted">Мы быстро свяжемся с вами!</h3>
                 </div>
-                <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                <form action="https://script.google.com/macros/s/AKfycbw7mcLIUbIdNDuLruffDeLriaSTq-0jeh4vTlGt/exec" id="contactForm" method="POST" data-email="example@email.net" name="sentMessage" novalidate="novalidate">
                     <div class="row align-items-stretch mb-5">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -324,7 +324,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group mb-md-0">
-                                <input class="form-control" id="phone" type="tel" placeholder="Ваш номер телефона *" required="required" data-validation-required-message="Пожалуйста укажите ваш номер телефона." />
+                                <input class="form-control" id="color" type="tel" placeholder="Ваш номер телефона *" required="required" data-validation-required-message="Пожалуйста укажите ваш номер телефона." />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
@@ -341,7 +341,7 @@
                     </div>
                     <div class="text-center">
                         <div id="success"></div>
-                        <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Оставить заявку</button>
+                        <button class="btn btn-primary btn-xl text-uppercase" id="sendRequest" type="submit">Оставить заявку</button>
                     </div>
                 </form>
             </div>
