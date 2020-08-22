@@ -67,24 +67,15 @@
     xhr.open('POST', url);
     // xhr.withCredentials = true;
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    xhr.onload = function() {
-      form.reset();
-        var formElements = form.querySelector(".form-elements")
-        if (formElements) {
-          formElements.style.display = "none"; // hide form
-        }
-        var thankYouMessage = form.querySelector(".thankyou_message");
-        if (thankYouMessage) {
-          thankYouMessage.style.display = "block";
-        }
-    };
-
     // url encode form data for sending as post data
     var encoded = Object.keys(data).map(function(k) {
       return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
     }).join('&');
     xhr.send(encoded);
+
+    $(".form-elements").hide();
+    $(".contact_title").text("Спасибо!");
+    $(".thankyou").addClass("show");
   }
   
   function loaded() {
