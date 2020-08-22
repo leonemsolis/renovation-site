@@ -51,7 +51,6 @@
   }
 
   function handleFormSubmit(event) {  // handles form submit without any jquery
-    console.log("WORKING");
     event.preventDefault();           // we are submitting via xhr below
     var form = event.target;
     var formData = getFormData(form);
@@ -63,48 +62,41 @@
     }
 
     disableAllButtons(form);
-    var url = form.action;
+    var url = "https://script.google.com/macros/s/AKfycbw7mcLIUbIdNDuLruffDeLriaSTq-0jeh4vTlGt/exec";
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url);
     // xhr.withCredentials = true;
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
     xhr.onreadystatechange = function() {
-        console.log(xhr.readyState);
-        console.log(xhr.status);
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          form.reset();
-          var formElements = form.querySelector(".form-elements")
-          if (formElements) {
-            formElements.style.display = "none"; // hide form
-            console.log("HIDDEN ELEMENTS")
-          }
-          var thankYouMessage = form.querySelector(".thankyou_message");
-          if (thankYouMessage) {
-            thankYouMessage.style.display = "block";
-            console.log("THANK YOU")
-          }
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        form.reset();
+        var formElements = form.querySelector(".form-elements")
+        if (formElements) {
+          formElements.style.display = "none"; // hide form
         }
+        var thankYouMessage = form.querySelector(".thankyou_message");
+        if (thankYouMessage) {
+          thankYouMessage.style.display = "block";
+        }
+      }
     };
+
     // url encode form data for sending as post data
     var encoded = Object.keys(data).map(function(k) {
-        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+      return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
     }).join('&');
     xhr.send(encoded);
   }
   
   function loaded() {
-    // bind to the submit event of our form
-    var forms = document.querySelectorAll("form");
-    for (var i = 0; i < forms.length; i++) {
-      forms[i].addEventListener("submit", handleFormSubmit, false);
-    }
+    document.querySelector("#contactForm").addEventListener("submit", handleFormSubmit, false);
   };
-  document.addEventListener("DOMContentLoaded", loaded, false);
-
   function disableAllButtons(form) {
     var buttons = form.querySelectorAll("button");
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].disabled = true;
     }
   }
+  document.addEventListener("DOMContentLoaded", loaded, false);
 })();
