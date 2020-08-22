@@ -68,9 +68,8 @@
     // xhr.withCredentials = true;
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        form.reset();
+    xhr.onload = function() {
+      form.reset();
         var formElements = form.querySelector(".form-elements")
         if (formElements) {
           formElements.style.display = "none"; // hide form
@@ -79,7 +78,6 @@
         if (thankYouMessage) {
           thankYouMessage.style.display = "block";
         }
-      }
     };
 
     // url encode form data for sending as post data
