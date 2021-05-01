@@ -265,7 +265,7 @@
                     <h2 class="contact_title section-heading text-uppercase">Оставьте заявку</h2>
                     <h3 class="section-subheading text-muted">Мы быстро свяжемся с вами!</h3>
                 </div>
-                <form id="contactForm" novalidate>
+                <form id="contactForm" novalidate="novalidate">
                     <div class="row align-items-stretch mb-5 form-elements">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -273,7 +273,6 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group mb-md-0">
-                                <label for="phone" class="sr-only control-label required">Phone</label>
                                 <input class="form-control" id="phone" name="phone" type="tel" placeholder="Ваш номер телефона *" required="required" data-validation-required-message="Пожалуйста укажите ваш номер телефона." />
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -461,9 +460,36 @@
         <!-- Core theme JS-->
         <script src="{{ url_for('static',filename='js/scripts.js') }}"></script>
         <script src="{{ url_for('static',filename='js/jqBootstrapValidation.js') }}"></script>
-        <script>
-            $(function () { $("input").not("[type=submit]").jqBootstrapValidation(); } );
-          </script>
         <script data-cfasync="false" type="text/javascript" src="{{ url_for('static',filename='js/form-submission-handler.js') }}"></script>
     </body>
 </html>
+
+
+<!-- <form id="contactForm" name="sentMessage" novalidate="novalidate">
+    <div class="row align-items-stretch mb-5">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input class="form-control" id="name" type="text" placeholder="Ваше Ф.И.О. *" required="required" data-validation-required-message="Нам нужно знать как к вам обращаться." />
+                <p class="help-block text-danger"></p>
+            </div>
+            <div class="form-group mb-md-0">
+                <input class="form-control" id="phone" type="tel" placeholder="Ваш номер телефона *" required="required" data-validation-required-message="Пожалуйста укажите ваш номер телефона." />
+                <p class="help-block text-danger"></p>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="email" type="email" placeholder="Адрес вашей электронной почты"/>
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group form-group-textarea mb-md-0">
+                <textarea class="form-control" id="message" placeholder="Дополнительная информация"></textarea>
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <div id="success"></div>
+        <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Оставить заявку</button>
+    </div>
+</form> -->
