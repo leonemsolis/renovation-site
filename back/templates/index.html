@@ -265,7 +265,7 @@
                     <h2 class="contact_title section-heading text-uppercase">Оставьте заявку</h2>
                     <h3 class="section-subheading text-muted">Мы быстро свяжемся с вами!</h3>
                 </div>
-                <form id="contactForm">
+                <form id="contactForm" novalidate>
                     <div class="row align-items-stretch mb-5 form-elements">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -273,6 +273,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group mb-md-0">
+                                <label for="phone" class="sr-only control-label required">Phone</label>
                                 <input class="form-control" id="phone" name="phone" type="tel" placeholder="Ваш номер телефона *" required="required" data-validation-required-message="Пожалуйста укажите ваш номер телефона." />
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -459,6 +460,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
         <script src="{{ url_for('static',filename='js/scripts.js') }}"></script>
+        <script src="{{ url_for('static',filename='js/jqBootstrapValidation.js') }}"></script>
+        <script>
+            $(function () { $("input").not("[type=submit]").jqBootstrapValidation(); } );
+          </script>
         <script data-cfasync="false" type="text/javascript" src="{{ url_for('static',filename='js/form-submission-handler.js') }}"></script>
     </body>
 </html>
