@@ -9,7 +9,6 @@
  */
 
 (function($) {
-
   var createdElements = [];
 
   var defaults = {
@@ -78,7 +77,6 @@
         });
 
         return this.each(function() {
-
           // Get references to everything we're interested in
           var $this = $(this),
             $controlGroup = $this.parents(".form-group").first(),
@@ -398,7 +396,6 @@
           $this.bind(
             "validation.validation",
             function(event, params) {
-
               var value = getValue($this);
 
               // Get a list of the errors to apply
