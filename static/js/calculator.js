@@ -6,11 +6,9 @@ $(function () {
     ).jqBootstrapValidation({
         preventSubmit: true,
         submitError: function ($form, event, errors) {
-            console.log("FAIL")
             // additional error messages or events
         },
         submitSuccess: function ($form, event) {
-            console.log("SUCCESS")
             event.preventDefault(); // prevent default submit behaviour
             var form = event.target;
 
@@ -18,7 +16,7 @@ $(function () {
 
             var area =  parseInt($("#area").val());
             var type =  parseInt($("#type").val());
-            var ceil =  parseFloat($("#ceil").val());
+            var ceil =  parseInt($("#ceil").val());
             var pack =  parseInt($("#pack").val());
             var de =    parseInt($("#de").val());
             
@@ -43,20 +41,17 @@ $(function () {
                 meterPriceThousands += 2;
             }
 
-            if(ceil > 3) {
+            if(ceil === 2) {
                 meterPriceThousands += 2;
             }
             
             var totalPrice = (meterPriceThousands * 1000 * area).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 
-            
-            console.log("AREA = "+area + ", TYPE = "+type + ", PACK = "+pack + ", CEIL = "+ceil + ", DE = "+de);
-            console.log(totalPrice);
 
             // PUT DATA TO MODAL
 
             $('#results-area').text(area+" м²");
-            $('#results-type').text(type == 1 ? "Новый дом" : "Старый дом");
+            $('#results-type').text(type === 1 ? "Новый дом" : "Старый дом");
             $('#results-pack').text(() => {
                 switch(pack) {
                     case 1:
@@ -67,8 +62,8 @@ $(function () {
                         return "Премиум";
                 }
             });
-            $('#results-ceil').text(ceil+" м");
-            $('#results-de').text(de == 1 ? "Нет" : "Да");
+            $('#results-ceil').text(ceil === 1 ? "3 метра или ниже" : "Выше 3 метров");
+            $('#results-de').text(de === 1 ? "Нет" : "Да");
             $('#results-sum').text(totalPrice+"₸");
 
             // Save data for request

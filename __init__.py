@@ -1,38 +1,54 @@
+# -*- coding: UTF-8 -*-
 # Setup
 from flask import Flask, render_template, request, url_for, flash, redirect
-import logging
 from datetime import datetime
 import smtplib, ssl
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import json
 import time
+from logging.config import dictConfig
 
-
-_logger = logging.getLogger(__name__)
-
-def log(message):
-    timestamp = datetime.now().strftime("%d/%m/%Y-%H:%M:%S")
-    _logger.warning(timestamp+" >> "+str(message))
-
+dictConfig({
+    'version': 1,
+    'formatters': {'default': {
+        'format': '[%(asctime)s] %(levelname)s in %(module)s: %(message)s',
+    }},
+    'handlers': {'wsgi': {
+        'class': 'logging.StreamHandler',
+        'stream': 'ext://flask.logging.wsgi_errors_stream',
+        'formatter': 'default'
+    }},
+    'root': {
+        'level': 'INFO',
+        'handlers': ['wsgi']
+    }
+})
 
 # Flask
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '54afd66aeec974cc13d1de3b0cc20657'
-# jsglue = JSGlue(app)
 
 
+@app.before_first_request
+def _declareStuff():
+    global numberOfVisitors
+    global numberOfSimpleForms
+    global numberOfCalcForms
+    numberOfVisitors = 0
+    numberOfSimpleForms = 0
+    numberOfCalcForms = 0
 
 @app.route('/')
 def main():
+    global numberOfVisitors
+    numberOfVisitors += 1
+    app.logger.info("STATS: Visits = "+str(numberOfVisitors))
     return render_template('index.html')
 
 #TODO: добавить счетчик использования калькулятора
 @app.route('/form', methods=['POST'])
 def form():
-    log(request.form)
-    time.sleep(1)
-    return 'ok'
+    app.logger.info("Form submited: "+str(request.form))
     try:
         data = json.loads(request.form['data'])
 
@@ -46,7 +62,7 @@ def form():
         else:
             return "fail"
     except Exception as e:
-        log("Error receiving data: "+str(e))
+        app.loggin.error("Error receiving data: "+str(e))
         return "fail"
 
 
@@ -65,7 +81,7 @@ def send_mail(data, calc):
     msg = data["message"]
     
     message = MIMEMultipart('alternative')
-    log("New mail was generated")
+    app.logger.info("New mail was generated")
     message['From'] = sender_email
     message['To'] = receiver_email
     message['Subject'] = "Заявка на ремонт от "+name
@@ -73,13 +89,16 @@ def send_mail(data, calc):
     attachText = "Имя клиента: "+name
     attachText += "\nТелефонный номер: "+phone
 
-    log(data)
+    app.logger.info(data)
 
     if msg != None:
         attachText += "\nДополнительное сообщение: "+msg
 
     if calc != None:
-        log(calc)
+        global numberOfCalcForms
+        numberOfCalcForms += 1
+        app.logger.info("STATS: Calc = "+str(numberOfCalcForms))
+        app.logger.info(calc)
         attachText += "\n-------------------"
         attachText += "\nСведения о квартире"
         attachText += "\nПлощадь: "+str(calc["0"]) + " кв.м."
@@ -88,19 +107,30 @@ def send_mail(data, calc):
             house_type = "Старый дом"
         
         attachText += "\nВид дома: "+house_type
-        attachText += "\nВысота потолков: "+str(calc["2"]) + " м."
+
+        ceil = "3 метра или ниже"
+        if calc["2"] == 2:
+            ceil = "Выше 3 метров"
+        attachText += "\nВысота потолков: "+ceil
+
         package = "Базовый"
-        if calc["3"] == 1:
-            package = "Базовый +"
         if calc["3"] == 2:
+            package = "Базовый +"
+        if calc["3"] == 3:
             package = "Премиум"
         attachText += "\nПакет ремонта: "+package
+
         demontage = "Нет"
-        if calc["4"] == 1:
+        if calc["4"] == 2:
             demontage = "Да"
 
         attachText += "\nДемонтаж: "+demontage
         attachText += "\nРассчитанная сумма " + calc["5"]+"₸"
+    else:
+        global numberOfSimpleForms
+        numberOfSimpleForms += 1
+        app.logger.info("STATS: Forms = "+str(numberOfSimpleForms))
+
 
     message.attach(MIMEText(attachText))
 
@@ -111,12 +141,12 @@ def send_mail(data, calc):
         server.quit()
         return True
     except Exception as e:
-        log("Error sending email: "+str(e))
+        app.logger.error("Error sending email: "+str(e))
         return False
 
 
 
 
 # if __name__ == '__main__':
-#     log("Photo server for websocket data server is up and listening!")
-#     app.run(host='127.0.0.1', port=80, threaded=True)
+#     app.logger.info("Server starting...")
+#     app.run(host='0.0.0.0', port=5000, threaded=True)
