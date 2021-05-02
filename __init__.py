@@ -136,9 +136,13 @@ def send_mail(data, calc):
 
     try:
         server = smtplib.SMTP_SSL(smtp_server, port, context=context)
+        app.logger.info("Server for mail created")
         server.login("eurostyle.bot@gmail.com", password)
+        app.logger.info("Server for mail logged in")
         server.sendmail(sender_email, receiver_email, message.as_string())
+        app.logger.info("Server for mail sent email")
         server.quit()
+        app.logger.info("Server for mail quited")
         return True
     except Exception as e:
         app.logger.error("Error sending email: "+str(e))
