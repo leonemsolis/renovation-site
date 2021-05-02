@@ -6,6 +6,7 @@ import smtplib, ssl
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import json
+import time
 
 
 _logger = logging.getLogger(__name__)
@@ -29,8 +30,9 @@ def main():
 #TODO: добавить счетчик использования калькулятора
 @app.route('/form', methods=['POST'])
 def form():
-    return 'ok'
     log(request.form)
+    time.sleep(1)
+    return 'ok'
     try:
         data = json.loads(request.form['data'])
 
@@ -117,4 +119,4 @@ def send_mail(data, calc):
 
 # if __name__ == '__main__':
 #     log("Photo server for websocket data server is up and listening!")
-#     app.run(host='0.0.0.0', port=80, threaded=True)
+#     app.run(host='127.0.0.1', port=80, threaded=True)

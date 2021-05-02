@@ -172,47 +172,38 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-heading text-uppercase">Пакеты ремонтов</h2>
-                <h3 class="section-subheading text-muted">Вы можете узнать подробнее о каждом из них ниже.</h3>
+                <h3 class="section-subheading text-muted">Выберите <b>лучшее предложение</b> для себя.</h3>
             </div>
             <div class="card-deck">
-                <div class="card mb-4 shadow-sm" style="display: block; margin-left: auto; margin-right: auto;">
-                    <img class="card-img-top" src="{{url_for('static', filename='img/types/business.jpg')}}" alt="Базовый">
+                <div class="card m-3 shadow-sm">
+                    <img class="card-img-top" src="{{url_for('static', filename='img/types/basic.png')}}" alt="Базовый">
                     <div class="card-body">
-                        <h5 class="card-title text-center"><i class="fas fa-briefcase"></i>&nbsp;&nbsp;Базовый</h5>
-                        <p class="card-text text-center">hello world hello world hello world hello world </p>
-                        <a style="margin-top: auto;" type="button"
-                            class="btn btn-sm font-weight-bold btn-block btn-primary text-uppercase text-dark"
-                            data-toggle="modal" href="#businessModal">Подробнее</a>
+                        <h5 class="card-title text-center">Базовый</h5>
+                        <p class="card-text text-center">Наше стартовое предложение по <b>доступным ценам</b>.</p>
                     </div>
-                    <!-- <img class="package-card card-img-top"
-                        src="{{url_for('static', filename='img/types/business.jpg')}}" style="opacity: 0.4;">
-                    <div class="card-img-overlay" style="display: flex; flex-direction: column;">
-                        <h6 class="card-title text-white"><i class="fas fa-briefcase"></i>&nbsp;&nbsp;Базовый</h6>
-                        <button style="margin-top: auto;" type="button"
-                            class="btn btn-sm font-weight-bold btn-block btn-primary text-uppercase text-dark"
-                            data-toggle="modal" href="#businessModal">Подробнее</button>
-                    </div> -->
+                    <a type="button"
+                    class="btn btn-sm font-weight-bold btn-block btn-primary text-uppercase text-dark"
+                    data-toggle="modal" href="#businessModal">Подробнее</a>
                 </div>
-                <div class="card img-fluid mb-4 shadow-sm" style="background-color: black;">
-                    <img class="package-card card-img-top" src="{{url_for('static', filename='img/types/premium.jpg')}}"
-                        style="opacity: 0.4;">
-                    <div class="card-img-overlay" style="display: flex; flex-direction: column;">
-                        <h6 class="card-title text-white"><i class="fas fa-paint-brush"></i>&nbsp;&nbsp;Базовый <i
-                                class="fas fa-plus"></i></h6>
-                        <button style="margin-top: auto;" type="button"
-                            class="btn btn-sm font-weight-bold btn-block btn-primary text-uppercase text-dark"
-                            data-toggle="modal" href="#designModal">Подробнее</button>
+                <div class="card m-3 shadow-sm">
+                    <img class="card-img-top" src="{{url_for('static', filename='img/types/basic-plus.png')}}" alt="Базовый+">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Базовый +</i></h5>
+                        <p class="card-text text-center">Качесвенный ремонт с индивидуальным <b>дизайн проектом</b>.</p>
                     </div>
+                    <a type="button"
+                        class="btn btn-sm font-weight-bold btn-block btn-primary text-uppercase text-dark"
+                        data-toggle="modal" href="#designModal">Подробнее</a>
                 </div>
-                <div class="card img-fluid mb-4 shadow-sm" style="background-color: black;">
-                    <img class="package-card card-img-top" src="{{url_for('static', filename='img/types/total.jpg')}}"
-                        style="opacity: 0.5;">
-                    <div class="card-img-overlay" style="display: flex; flex-direction: column;">
-                        <h6 class="card-title text-white"><i class="fas fa-building"></i>&nbsp;&nbsp;Премиум</h6>
-                        <button style="margin-top: auto;" type="button"
-                            class="btn btn-sm font-weight-bold btn-block btn-primary text-uppercase text-dark"
-                            data-toggle="modal" href="#totalModal">Подробнее</button>
+                <div class="card m-3 shadow-sm">
+                    <img class="card-img-top" src="{{url_for('static', filename='img/types/premium.png')}}" alt="Премиум">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Премиум</i></h5>
+                        <p class="card-text text-center"><b>Премиальная</b> программа, разработанная для Вашего комфорта.</p>
                     </div>
+                    <a type="button"
+                    class="btn btn-sm font-weight-bold btn-block btn-primary text-uppercase text-dark"
+                    data-toggle="modal" href="#totalModal">Подробнее</a>
                 </div>
             </div>
             <br>
@@ -280,7 +271,10 @@
                     <div class="text-center">
                         <div id="success"></div>
                         <button class="btn btn-primary btn-xl text-uppercase text-dark" id="sendMessageButton"
-                            type="submit">Расчитать цену</button>
+                            type="submit">
+                            <span id="calculate-button-text">Расчитать цену</span>
+                            <span id="calculate-button-spin" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                        </button>
                     </div>
                     <br>
                 </form>
@@ -301,41 +295,36 @@
                                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                                         <div>
                                             <h6 class="my-0">Площадь</h6>
-                                            <small class="text-muted">В метрах²</small>
                                         </div>
-                                        <span class="text-muted">10</span>
+                                        <span id="results-area" class="text-muted">???</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                                         <div>
                                             <h6 class="my-0">Вид дома</h6>
-                                            <!-- <small class="text-muted">Brief description</small> -->
                                         </div>
-                                        <span class="text-muted">Новый дом</span>
+                                        <span id="results-type" class="text-muted">???</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                                         <div>
                                             <h6 class="my-0">Высота потолков</h6>
-                                            <small class="text-muted">В метрах</small>
                                         </div>
-                                        <span class="text-muted">2,2</span>
+                                        <span id="results-ceil" class="text-muted">???</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                                         <div>
                                             <h6 class="my-0">Пакет ремонта</h6>
-                                            <!-- <small class="text-muted"></small> -->
                                         </div>
-                                        <span class="text-muted">Базовый +</span>
+                                        <span id="results-pack" class="text-muted">???</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                                         <div>
                                             <h6 class="my-0">Демонтаж</h6>
-                                            <!-- <small class="text-muted"></small> -->
                                         </div>
-                                        <span class="text-muted">Да</span>
+                                        <span id="results-de" class="text-muted">???</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between">
                                         <span>Итого</span>
-                                        <strong>20 000 000₸</strong>
+                                        <strong id="results-sum">???</strong>
                                     </li>
                                 </ul>
                                 <div style="text-align: center;">
@@ -400,7 +389,10 @@
                 <div class="text-center form-elements">
                     <div id="success"></div>
                     <button class="text-dark btn btn-primary btn-xl text-uppercase" id="sendRequest"
-                        type="submit">Оставить заявку</button>
+                        type="submit">
+                        <span id="contact-button-text">Оставить заявку</span>
+                        <span id="contact-button-spin" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    </button>
                 </div>
             </form>
             <div class="thankyou alert alert-warning alert-dismissible fade text-center" role="alert">
@@ -426,8 +418,8 @@
                             <i class="text-dark fas fa-phone-alt fa-stack-1x fa-inverse"></i>
                         </span>
                         <h4>+77007702135</h4>
-                        <button class="text-dark btn btn-primary btn-lg text-uppercase" id="sendMessageButton"
-                            onclick="copyclip('+77007702135')">Скопировать <i class="fas fa-copy"></i></button>
+                        <button class="text-dark btn btn-primary text-uppercase" id="sendMessageButton"
+                            onclick="copyclip('+77007702135')"><i class="fas fa-copy"></i>&nbsp;&nbsp;Скопировать</button>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -437,8 +429,8 @@
                             <i class="text-dark fab fa-whatsapp fa-stack-1x fa-inverse"></i>
                         </span>
                         <h4>+77007702135</h4>
-                        <button class="text-dark btn btn-primary btn-lg text-uppercase" id="sendMessageButton"
-                            onclick="copyclip('+77007702135')">Скопировать <i class="fas fa-copy"></i></button>
+                        <button class="text-dark btn btn-primary text-uppercase" id="sendMessageButton"
+                            onclick="copyclip('+77007702135')"><i class="fas fa-copy"></i>&nbsp;&nbsp;Скопировать</button>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -448,8 +440,8 @@
                             <i class="text-dark fas fa-envelope fa-stack-1x fa-inverse"></i>
                         </span>
                         <h4>test@company.com</h4>
-                        <button class="text-dark btn btn-primary btn-lg text-uppercase" id="sendMessageButton"
-                            onclick="copyclip('test@company.com')">Скопировать <i class="fas fa-copy"></i></button>
+                        <button class="text-dark btn btn-primary text-uppercase" id="sendMessageButton"
+                            onclick="copyclip('test@company.com')"><i class="fas fa-copy"></i>&nbsp;&nbsp;Скопировать</button>
                     </div>
                 </div>
             </div>
@@ -492,7 +484,7 @@
                         <li class="list-group-item"> <i class="fas fa-chevron-circle-right"></i>&nbsp;&nbsp;Установка и
                             подключение сантехники</li>
                         <li class="list-group-item bg-primary text-dark"> <i
-                                class="fas fa-money-bill-wave"></i>&nbsp;&nbsp;&nbsp;<b>20 000₸ за квадратный метр</b>
+                                class="fas fa-money-bill-wave"></i>&nbsp;&nbsp;&nbsp;<b>20 000₸ за метр²</b>
                         </li>
                     </ul>
                 </div>
@@ -553,7 +545,7 @@
                         <li class="list-group-item"> <i
                                 class="fas fa-chevron-circle-right"></i>&nbsp;&nbsp;Авторский контроль</li>
                         <li class="list-group-item bg-primary text-dark"> <i
-                                class="fas fa-money-bill-wave"></i>&nbsp;&nbsp;&nbsp;<b>25 000₸ за квадратный метр</b>
+                                class="fas fa-money-bill-wave"></i>&nbsp;&nbsp;&nbsp;<b>25 000₸ за метр²</b>
                         </li>
                     </ul>
                 </div>
@@ -617,7 +609,7 @@
                                 class="fas fa-chevron-circle-right"></i>&nbsp;&nbsp;Установка и подключение сантехники
                         </li>
                         <li class="list-group-item bg-primary text-dark"> <i
-                                class="fas fa-money-bill-wave"></i>&nbsp;&nbsp;&nbsp;<b>30 000₸ за квадратный метр</b>
+                                class="fas fa-money-bill-wave"></i>&nbsp;&nbsp;&nbsp;<b>30 000₸ за метр²</b>
                         </li>
                     </ul>
                 </div>

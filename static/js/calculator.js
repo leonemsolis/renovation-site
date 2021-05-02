@@ -14,6 +14,8 @@ $(function () {
             event.preventDefault(); // prevent default submit behaviour
             var form = event.target;
 
+            disableAllButtons(form);
+
             var area =  parseInt($("#area").val());
             var type =  parseInt($("#type").val());
             var ceil =  parseFloat($("#ceil").val());
@@ -44,8 +46,8 @@ $(function () {
             if(ceil > 3) {
                 meterPriceThousands += 2;
             }
-
-            var totalPrice = meterPriceThousands * 1000 * area;
+            
+            var totalPrice = (meterPriceThousands * 1000 * area).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 
             
             console.log("AREA = "+area + ", TYPE = "+type + ", PACK = "+pack + ", CEIL = "+ceil + ", DE = "+de);
@@ -53,7 +55,21 @@ $(function () {
 
             // PUT DATA TO MODAL
 
-            
+            $('#results-area').text(area+" м²");
+            $('#results-type').text(type == 1 ? "Новый дом" : "Старый дом");
+            $('#results-pack').text(() => {
+                switch(pack) {
+                    case 1:
+                        return "Базовый";
+                    case 2:
+                        return "Базовый +";
+                    default:
+                        return "Премиум";
+                }
+            });
+            $('#results-ceil').text(ceil+" м");
+            $('#results-de').text(de == 1 ? "Нет" : "Да");
+            $('#results-sum').text(totalPrice+"₸");
 
             // Save data for request
             calcData = {
@@ -64,8 +80,16 @@ $(function () {
                 4: de,
                 5: totalPrice
             }
+        
+            $('#calculate-button-text').addClass('d-none')
+            $('#calculate-button-spin').removeClass('d-none')    
 
-            $('#calcModal').modal('show');
+            setTimeout(() => { 
+                $('#calcModal').modal('show');
+                enableAllButtons(form);
+                $('#calculate-button-text').removeClass('d-none')
+                $('#calculate-button-spin').addClass('d-none')
+            }, Math.random() * 500 + 500);
         },
         filter: function () {
             return $(this).is(":visible");

@@ -16,7 +16,8 @@ $(function () {
             var phone = $("input#phone").val();
             var message = $("input#message").val();
 
-
+            $('#contact-button-text').addClass('d-none')
+            $('#contact-button-spin').removeClass('d-none')
 
             var data = {
                 "name": name,
@@ -34,6 +35,8 @@ $(function () {
                     $('.thankyou').addClass('show');
                 } else {
                     $(".errormessage").addClass("show");
+                    $('#contact-button-text').removeClass('d-none')
+                    $('#contact-button-spin').addClass('d-none')
                     enableAllButtons(event.target);
                 }
             });
