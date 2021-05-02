@@ -10523,8 +10523,8 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .float{
 	position:fixed;
-	width:60px;
-	height:60px;
+	width:100px;
+	height:100px;
 	bottom:40px;
 	right:40px;
 	background-color: var(--primary);
@@ -10536,6 +10536,8 @@ section#contact form#contactForm :-ms-input-placeholder {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: x-large;
+  padding: 16.5px;
 
   animation-name: example;
   animation-duration: 3s;
@@ -10549,6 +10551,6 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 @keyframes example {
-  from {width: 60px;}
-  to {width: 190px;}
+  from {width: 100px;}
+  to {width: 300px;}
 }

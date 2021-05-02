@@ -189,22 +189,22 @@
                     <h3 class="section-subheading text-muted">Воспользуйтесь калькулятором онлайн, чтобы узнать цену.</h3>
                 </div>
                 <div class="container">
-                    <form id="calculator" name="sentMessage" novalidate="novalidate">
+                    <form id="calc" name="calculatorForm" novalidate="novalidate">
                         <div class="row align-items-stretch mb-5">
                             <div class="col-md-6">
                                 <div class="input-group mb-md-4 input-group-sm">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Площадь (в кв.метрах)</span> 
                                     </div>
-                                    <input type="number" min="10" pattern="\d*" class="form-control" placeholder="10">
+                                    <input id="area" min="10" value="10" name="area" type="number" pattern="\d*" class="form-control">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="input-group mb-md-4 input-group-sm">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Вид дома</span> 
                                     </div>
-                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                        <option selected value="1">Новый дом</option>
+                                    <select id="type" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                        <option value="1">Новый дом</option>
                                         <option value="2">Старый дом</option>
                                     </select>
                                     <p class="help-block text-danger"></p>
@@ -213,7 +213,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Высота потолков</span> 
                                     </div>
-                                    <input type="number" min="2.0" pattern="\d*,d*" step="0.1" class="form-control" placeholder="2.0">
+                                    <input id="ceil" type="number" value="2.0" min="2.0" pattern="\d*,d*" step="0.1" class="form-control">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -222,8 +222,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Пакет ремонта</span> 
                                     </div>
-                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                        <option selected value="1">Базовый</option>
+                                    <select id="pack" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                        <option value="1">Базовый</option>
                                         <option value="2">Базовый +</option>
                                         <option value="3">Премиум</option>
                                     </select>
@@ -233,8 +233,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Демонтаж</span> 
                                     </div>
-                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                        <option selected value="1">Нет</option>
+                                    <select id="de" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                        <option value="1">Нет</option>
                                         <option value="2">Да</option>
                                     </select>
                                     <p class="help-block text-danger"></p>
@@ -362,7 +362,7 @@
                             <li class="list-group-item" >                       <i class="fas fa-chevron-circle-right"></i>&nbsp;&nbsp;Установка межкомнатных дверей</li>
                             <li class="list-group-item list-group-item-dark" >  <i class="fas fa-chevron-circle-right"></i>&nbsp;&nbsp;Покраска стен/поклейка обоев, частичная установка молдингов и стеновых панелей</li>
                             <li class="list-group-item" >                       <i class="fas fa-chevron-circle-right"></i>&nbsp;&nbsp;Установка и подключение сантехники</li>
-                            <li class="list-group-item list-group-item-info" >  <i class="fas fa-tenge"></i>&nbsp;&nbsp;&nbsp;<b>20 000₸ за квадратный метр</b></li>
+                            <li class="list-group-item list-group-item-info" >  <i class="fas fa-money-bill-wave"></i>&nbsp;&nbsp;&nbsp;<b>20 000₸ за квадратный метр</b></li>
                         </ul>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
@@ -401,7 +401,7 @@
                             <li class="list-group-item list-group-item-dark" >                       <i class="fas fa-chevron-circle-right"></i>&nbsp;&nbsp;Покраска стен/поклейка обоев</li>
                             <li class="list-group-item" >  <i class="fas fa-chevron-circle-right"></i>&nbsp;&nbsp;Установка и подключение сантехники</li>
                             <li class="list-group-item list-group-item-dark" >                       <i class="fas fa-chevron-circle-right"></i>&nbsp;&nbsp;Авторский контроль</li>
-                            <li class="list-group-item list-group-item-info" >  <i class="fas fa-tenge"></i>&nbsp;&nbsp;&nbsp;<b>25 000₸ за квадратный метр</b></li>
+                            <li class="list-group-item list-group-item-info" >  <i class="fas fa-money-bill-wave"></i>&nbsp;&nbsp;&nbsp;<b>25 000₸ за квадратный метр</b></li>
                         </ul>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
@@ -441,7 +441,7 @@
                             <li class="list-group-item list-group-item-dark" >  <i class="fas fa-chevron-circle-right"></i>&nbsp;&nbsp;Установка межкомнатных дверей</li>
                             <li class="list-group-item" >                       <i class="fas fa-chevron-circle-right"></i>&nbsp;&nbsp;Покраска стен/поклейка обоев, частиная установка молдингов и стеновых панелей</li>
                             <li class="list-group-item list-group-item-dark" >  <i class="fas fa-chevron-circle-right"></i>&nbsp;&nbsp;Установка и подключение сантехники</li>
-                            <li class="list-group-item list-group-item-info" >  <i class="fas fa-tenge"></i>&nbsp;&nbsp;&nbsp;<b>30 000₸ за квадратный метр</b></li>
+                            <li class="list-group-item list-group-item-info" >  <i class="fas fa-money-bill-wave"></i>&nbsp;&nbsp;&nbsp;<b>30 000₸ за квадратный метр</b></li>
                         </ul>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
@@ -460,8 +460,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
         <script src="{{ url_for('static',filename='js/jqBootstrapValidation.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static',filename='js/contact_me.js') }}"></script>
-        <script data-cfasync="false" type="text/javascript" src="{{ url_for('static',filename='js/form-submission-handler.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static',filename='js/contactMe.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static',filename='js/calculator.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static',filename='js/scripts.js') }}"></script>
     </body>
 </html>

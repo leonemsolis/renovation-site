@@ -1,6 +1,5 @@
 # Setup
 from flask import Flask, render_template, request, url_for, flash, redirect
-from flask_jsglue import JSGlue
 import logging
 from datetime import datetime
 import smtplib, ssl
