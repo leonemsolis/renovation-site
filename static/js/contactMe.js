@@ -23,16 +23,9 @@ $(function () {
                 "phone": phone,
                 "message": message === "" ? null : message
             }
-            var calc = {
-                0: 10,
-                1: 0,
-                2: "2.3",
-                3: 0,
-                4: 0,
-                5: "200000000"
-            }
+            
             data = JSON.stringify(data)
-            calc = JSON.stringify(calc)
+            calc = JSON.stringify(calcData)
             
             $.post('/form', {data: data, calc: calc}, function(response) {
                 if(response === "ok") {

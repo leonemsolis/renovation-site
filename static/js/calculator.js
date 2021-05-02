@@ -1,3 +1,5 @@
+var calcData = null
+
 $(function () {
     $(
         "#calc input,#calc textarea,#calc button"
@@ -49,7 +51,21 @@ $(function () {
             console.log("AREA = "+area + ", TYPE = "+type + ", PACK = "+pack + ", CEIL = "+ceil + ", DE = "+de);
             console.log(totalPrice);
 
+            // PUT DATA TO MODAL
 
+            
+
+            // Save data for request
+            calcData = {
+                0: area,
+                1: type,
+                2: ceil,
+                3: pack,
+                4: de,
+                5: totalPrice
+            }
+
+            $('#calcModal').modal('show');
         },
         filter: function () {
             return $(this).is(":visible");
@@ -80,4 +96,9 @@ function enableAllButtons(form) {
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].disabled = false;
     }
+}
+
+function scrollToAnchor(aid){
+    var aTag = $("#"+ aid);
+    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
 }
