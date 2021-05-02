@@ -133,7 +133,7 @@ def send_mail(data, calc):
 
 
     message.attach(MIMEText(attachText))
-
+    app.logger.info("Starting sending operation")
     try:
         server = smtplib.SMTP_SSL(smtp_server, port, context=context)
         app.logger.info("Server for mail created")
