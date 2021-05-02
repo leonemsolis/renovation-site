@@ -2,7 +2,7 @@
 # Setup
 from flask import Flask, render_template, request, url_for, flash, redirect
 from datetime import datetime
-import smtplib
+from smtplib import SMTP
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import json
@@ -133,8 +133,13 @@ def send_mail(data, calc):
     message.attach(MIMEText(attachText))
     app.logger.info("Starting sending operation")
     try:
-        server = smtplib.SMTP_SSL(smtp_server, 465)
+        server = SMTP(smtp_server, 25)
         app.logger.info("Server for mail created")
+
+        server.connect(smtp_server, 25)
+        server.ehlo()
+        server.starttls()
+        server.ehlo()
 
         server.login("eurostyle.bot@gmail.com", password)
         app.logger.info("Server for mail logged in")
