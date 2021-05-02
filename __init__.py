@@ -2,7 +2,7 @@
 # Setup
 from flask import Flask, render_template, request, url_for, flash, redirect
 from datetime import datetime
-import smtplib, ssl
+from smtplib import SMTP
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import json
@@ -69,9 +69,7 @@ def form():
 # Other methods
 def send_mail(data, calc):
     smtp_server = "smtp.gmail.com"
-    port = 465
     password = "4b6a9b0b"
-    context = ssl.create_default_context()
 
     sender_email = "eurostyle.bot@gmail.com"
     receiver_email = "leonemsolis@gmail.com"
@@ -135,12 +133,20 @@ def send_mail(data, calc):
     message.attach(MIMEText(attachText))
     app.logger.info("Starting sending operation")
     try:
-        server = smtplib.SMTP_SSL(smtp_server, port, context=context)
+        server = SMTP(smtp_server, 25)
         app.logger.info("Server for mail created")
+
+        server.connect(smtp_server, 25)
+        server.ehlo()
+        server.starttls()
+        server.ehlo()
+
         server.login("eurostyle.bot@gmail.com", password)
         app.logger.info("Server for mail logged in")
+
         server.sendmail(sender_email, receiver_email, message.as_string())
         app.logger.info("Server for mail sent email")
+
         server.quit()
         app.logger.info("Server for mail quited")
         return True
