@@ -119,5 +119,5 @@ function enableAllButtons(form) {
 
 function scrollToAnchor(aid){
     var aTag = $("#"+ aid);
-    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+    $('html,body').animate({scrollTop: aTag.offset().top - 100},'slow');
 }
