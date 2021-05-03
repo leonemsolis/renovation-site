@@ -72,7 +72,7 @@ def send_mail(data, calc):
     password = "4b6a9b0b"
 
     sender_email = "eurostyle.bot@gmail.com"
-    receiver_email = "leonemsolis@gmail.com"
+    receiver_email = "eurostyleast2014@gmail.com"
 
     name = data["name"]
     phone = data["phone"]
@@ -141,7 +141,7 @@ def send_mail(data, calc):
         server.starttls()
         server.ehlo()
 
-        server.login("eurostyle.bot@gmail.com", password)
+        server.login(sender_email, password)
         app.logger.info("Server for mail logged in")
 
         server.sendmail(sender_email, receiver_email, message.as_string())
