@@ -10521,7 +10521,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 .list-group{
-  max-height: 420px;
+  max-height: 60vh;
   margin-bottom: 10px;
   overflow:scroll;
   -webkit-overflow-scrolling: touch;
