@@ -57,9 +57,9 @@ $(function () {
                     case 1:
                         return "Базовый";
                     case 2:
-                        return "Базовый +";
+                        return "Базовый Плюс";
                     default:
-                        return "Премиум";
+                        return "Премиальный";
                 }
             });
             $('#results-ceil').text(ceil === 1 ? "3 метра или ниже" : "Выше 3 метров");

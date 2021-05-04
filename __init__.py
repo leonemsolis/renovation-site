@@ -113,9 +113,9 @@ def send_mail(data, calc):
 
         package = "Базовый"
         if calc["3"] == 2:
-            package = "Базовый +"
+            package = "Базовый Плюс"
         if calc["3"] == 3:
-            package = "Премиум"
+            package = "Премиальный"
         attachText += "\nПакет ремонта: "+package
 
         demontage = "Нет"
