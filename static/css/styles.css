@@ -10520,8 +10520,8 @@ section#contact form#contactForm :-ms-input-placeholder {
   margin: 0 auto;
 }
 
-.list-group{
-  max-height: 60vh;
+.list-group.x{
+  max-height: 37vh;
   margin-bottom: 10px;
   overflow:scroll;
   -webkit-overflow-scrolling: touch;
