@@ -10149,7 +10149,7 @@ header.masthead {
   padding-bottom: 2rem;
   text-align: center;
   color: #fff;
-  background:linear-gradient( rgba(0, 0, 0, .9), rgba(0, 0, 0, .4) ), url('/static/img/header-bg.jpeg');
+  background:linear-gradient( rgba(0, 0, 0, .9), rgba(0, 0, 0, .4) ), url('/img/header-bg.jpeg');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
