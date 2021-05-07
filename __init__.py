@@ -72,8 +72,8 @@ def send_mail(data, calc):
     password = "4b6a9b0b"
 
     sender_email = "eurostyle.bot@gmail.com"
-    # receiver_email = "eurostyleast2014@gmail.com"
-    receiver_email = "leonemsolis@gmail.com"
+    receiver_email = "eurostyleast2014@gmail.com"
+    # receiver_email = "leonemsolis@gmail.com"
 
     name = data["name"]
     phone = data["phone"]
