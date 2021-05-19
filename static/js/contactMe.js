@@ -24,12 +24,13 @@ $(function () {
                 "phone": phone,
                 "message": message === "" ? null : message
             }
-            
+
             data = JSON.stringify(data)
             calc = JSON.stringify(calcData)
-            
-            $.post('/form', {data: data, calc: calc}, function(response) {
-                if(response === "ok") {
+
+            $.post('/form', { data: data, calc: calc }, function (response) {
+                if (response === "ok") {
+                    gtag_report_conversion();
                     $(".form-elements").hide();
                     $(".contact_title").text("Спасибо!");
                     $('.thankyou').addClass('show');

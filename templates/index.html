@@ -47,6 +47,37 @@
         gtag('config', 'G-ESFK6MTTPX');
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <!-- Global site tag (gtag.js) - Google Ads: 370733146 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-370733146"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-370733146');
+    </script>
+    <!-- Global site tag (gtag.js) - Google Ads: 370733146 -->
+
+    <!-- Event snippet for Просмотр страницы conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+        function gtag_report_conversion() {
+            var callback = function () {
+                // if (typeof (url) != 'undefined') {
+                //     window.location = url;
+                // }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-370733146/00WfCLTUjJgCENrg47AB',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
+
+
+
 </head>
 
 <body id="page-top">
