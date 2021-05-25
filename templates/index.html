@@ -73,6 +73,19 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             });
             return false;
         }
+
+        function gtag_report_conversion_contact() {
+            var callback = function () {
+                // if (typeof (url) != 'undefined') {
+                //     window.location = url;
+                // }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-370733146/EwmqCKC6u6MCENrg47AB',
+                'event_callback': callback
+            });
+            return false;
+        }
     </script>
 
 
@@ -80,7 +93,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
 <body id="page-top">
     <!-- Navigation-->
-    <a href="tel:+77010131898" class="float" onclick="gtag_report_conversion();">
+    <a href="tel:+77010131898" class="float" onclick="gtag_report_conversion_contact();">
         <i class="fa fa-phone-alt my-float text-light"> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Позвоните нам!</span> </i>
     </a>
 
@@ -492,8 +505,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         </span>
                         <h4>+7 (701) 013-18-98</h4>
                         <button class="text-dark btn btn-primary text-uppercase" id="sendMessageButton"
-                            onclick="copyclip('+77010131898'); gtag_report_conversion();" title="Номер телефона"><i
-                                class="fas fa-copy"></i>&nbsp;&nbsp;Скопировать</button>
+                            onclick="copyclip('+77010131898'); gtag_report_conversion_contact();"
+                            title="Номер телефона"><i class="fas fa-copy"></i>&nbsp;&nbsp;Скопировать</button>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -504,8 +517,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         </span>
                         <h4>+7 (701) 013-18-98</h4>
                         <button class="text-dark btn btn-primary text-uppercase" id="sendMessageButton"
-                            onclick="copyclip('+77010131898'); gtag_report_conversion();" title="Номер ватсап"><i
-                                class="fas fa-copy"></i>&nbsp;&nbsp;Скопировать</button>
+                            onclick="copyclip('+77010131898'); gtag_report_conversion_contact();"
+                            title="Номер ватсап"><i class="fas fa-copy"></i>&nbsp;&nbsp;Скопировать</button>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -516,7 +529,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         </span>
                         <h4>eurostyleast2014@gmail.com</h4>
                         <button class="text-dark btn btn-primary text-uppercase" id="sendMessageButton"
-                            onclick="copyclip('eurostyleast2014@gmail.com'); gtag_report_conversion();"
+                            onclick="copyclip('eurostyleast2014@gmail.com'); gtag_report_conversion_contact();"
                             title="Адрес почты"><i class="fas fa-copy"></i>&nbsp;&nbsp;Скопировать</button>
                     </div>
                 </div>
