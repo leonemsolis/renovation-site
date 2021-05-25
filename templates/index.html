@@ -80,7 +80,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
 <body id="page-top">
     <!-- Navigation-->
-    <a href="tel:+77010131898" class="float">
+    <a href="tel:+77010131898" class="float" onclick="gtag_report_conversion();">
         <i class="fa fa-phone-alt my-float text-light"> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Позвоните нам!</span> </i>
     </a>
 
@@ -492,7 +492,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         </span>
                         <h4>+7 (701) 013-18-98</h4>
                         <button class="text-dark btn btn-primary text-uppercase" id="sendMessageButton"
-                            onclick="copyclip('+77010131898')" title="Номер телефона"><i
+                            onclick="copyclip('+77010131898'); gtag_report_conversion();" title="Номер телефона"><i
                                 class="fas fa-copy"></i>&nbsp;&nbsp;Скопировать</button>
                     </div>
                 </div>
@@ -504,7 +504,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         </span>
                         <h4>+7 (701) 013-18-98</h4>
                         <button class="text-dark btn btn-primary text-uppercase" id="sendMessageButton"
-                            onclick="copyclip('+77010131898')" title="Номер ватсап"><i
+                            onclick="copyclip('+77010131898'); gtag_report_conversion();" title="Номер ватсап"><i
                                 class="fas fa-copy"></i>&nbsp;&nbsp;Скопировать</button>
                     </div>
                 </div>
@@ -516,8 +516,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         </span>
                         <h4>eurostyleast2014@gmail.com</h4>
                         <button class="text-dark btn btn-primary text-uppercase" id="sendMessageButton"
-                            onclick="copyclip('eurostyleast2014@gmail.com')" title="Адрес почты"><i
-                                class="fas fa-copy"></i>&nbsp;&nbsp;Скопировать</button>
+                            onclick="copyclip('eurostyleast2014@gmail.com'); gtag_report_conversion();"
+                            title="Адрес почты"><i class="fas fa-copy"></i>&nbsp;&nbsp;Скопировать</button>
                     </div>
                 </div>
             </div>
