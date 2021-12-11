@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Евроремонт в городе Нур-Султан(Астана) по лучшим ценам</title>
@@ -11,7 +11,7 @@
         content="Наш Евроремонт - это совокупность доступных цен, стиля, гарантии и профессионализма. Работаем в Нур Султане (Астане)." />
 
     <meta name="keywords" content="евроремонт ремонт квартира нур-султан астана под ключ недорого сколько стоит" />
-    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon.ico')}}" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <script src="https://kit.fontawesome.com/47505664c8.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet"
@@ -99,8 +99,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top"><img
-                    src="{{url_for('static', filename='img/euro-style.svg')}}" alt="" /></a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="img/euro-style.svg" alt="" /></a>
             <button class="navbar-toggler navbar-toggler-right text-dark" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -113,10 +112,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                             title="Евроремонты в астане">О нас</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio"
                             title="Реальные примеры работ">Примеры работ</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#plans"
+                            title="Оставить заявку на евроремонт">Пакеты</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#calculator"
                             title="Доступные цены">Цены</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#request"
-                            title="Оставить заявку на евроремонт">Оставить заявку</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact"
                             title="Наши контакты | Телефон, Ватсап, Почта">Контакты</a></li>
                 </ul>
@@ -198,36 +197,28 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100 rounded-xl" src="{{url_for('static', filename='img/work/6.png')}}"
-                                alt="ремонт под ключ">
+                            <img class="d-block w-100 rounded-xl" src="img/work/6.png" alt="ремонт под ключ">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100 rounded-xl" src="{{url_for('static', filename='img/work/3.png')}}"
-                                alt="евроремонт">
+                            <img class="d-block w-100 rounded-xl" src="img/work/3.png" alt="евроремонт">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100 rounded-xl" src="{{url_for('static', filename='img/work/2.png')}}"
-                                alt="ремонт в астане">
+                            <img class="d-block w-100 rounded-xl" src="img/work/2.png" alt="ремонт в астане">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100 rounded-xl" src="{{url_for('static', filename='img/work/4.png')}}"
-                                alt="евроремонт в нур султане">
+                            <img class="d-block w-100 rounded-xl" src="img/work/4.png" alt="евроремонт в нур султане">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100 rounded-xl" src="{{url_for('static', filename='img/work/1.png')}}"
-                                alt="евроремонт под ключ">
+                            <img class="d-block w-100 rounded-xl" src="img/work/1.png" alt="евроремонт под ключ">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100 rounded-xl" src="{{url_for('static', filename='img/work/5.png')}}"
-                                alt="ремонт квартир">
+                            <img class="d-block w-100 rounded-xl" src="img/work/5.png" alt="ремонт квартир">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100 rounded-xl" src="{{url_for('static', filename='img/work/7.png')}}"
-                                alt="качественный евроремонт">
+                            <img class="d-block w-100 rounded-xl" src="img/work/7.png" alt="качественный евроремонт">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100 rounded-xl" src="{{url_for('static', filename='img/work/8.png')}}"
-                                alt="ремонт недорого">
+                            <img class="d-block w-100 rounded-xl" src="img/work/8.png" alt="ремонт недорого">
                         </div>
                     </div>
                     <br>
@@ -243,8 +234,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             </div>
         </div>
     </section>
-    <!-- Calculator-->
-    <section class="page-section bg-light" id="calculator">
+    <!-- Plans-->
+    <section class="page-section bg-light" id="plans">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-heading text-uppercase">Пакеты ремонтов</h2>
@@ -252,8 +243,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             </div>
             <div class="card-deck">
                 <div class="card m-3 shadow-sm">
-                    <img class="card-img-top" src="{{url_for('static', filename='img/types/basic.jpg')}}"
-                        alt="Базовый пакет евроремонта">
+                    <img class="card-img-top" src="img/types/basic.jpg" alt="Базовый пакет евроремонта">
                     <div class="card-body">
                         <h3 class="card-title text-center">Базовый</h3>
                         <p class="card-text text-center">Наше стартовое предложение по <b>доступным ценам</b>.</p>
@@ -263,8 +253,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         title="Наше стартовое предложение по доступным ценам.">Подробнее</button>
                 </div>
                 <div class="card m-3 shadow-sm">
-                    <img class="card-img-top" src="{{url_for('static', filename='img/types/basic-plus.jpg')}}"
-                        alt="Базовый+ пакет евроремонта">
+                    <img class="card-img-top" src="img/types/basic-plus.jpg" alt="Базовый+ пакет евроремонта">
                     <div class="card-body">
                         <h3 class="card-title text-center">Базовый Плюс</h3>
                         <p class="card-text text-center">Качесвенный евроремонт с индивидуальным <b>дизайн проектом</b>.
@@ -275,8 +264,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         title="Качесвенный евроремонт с индивидуальным дизайн проектом.">Подробнее</button>
                 </div>
                 <div class="card m-3 shadow-sm">
-                    <img class="card-img-top" src="{{url_for('static', filename='img/types/premium.jpg')}}"
-                        alt="Премиум пакет евроремонта">
+                    <img class="card-img-top" src="img/types/premium.jpg" alt="Премиум пакет евроремонта">
                     <div class="card-body">
                         <h3 class="card-title text-center">Премиальный</h3>
                         <p class="card-text text-center"><b>Премиум</b> программа, разработанная для Вашего комфорта.
@@ -287,12 +275,17 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         title="Премиум программа евроремонта, разработанная для Вашего комфорта.">Подробнее</button>
                 </div>
             </div>
-            <br>
-            <br>
+
+        </div>
+    </section>
+    <!-- Calculator-->
+    <section class="page-section bg-white" id="calculator">
+        <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-heading text-uppercase">Цены на ремонт</h2>
                 <h3 class="section-subheading text-muted">Воспользуйтесь калькулятором онлайн, чтобы узнать
-                    <b>предварительную</b> цену.</h3>
+                    <b>предварительную</b> цену.
+                </h3>
                 <h3 class="section-subheading text-muted">Результат Вы получите сразу!</h3>
             </div>
             <div class="container">
@@ -422,70 +415,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary text-light" data-dismiss="modal"><i
                                         class="fas fa-times mr-1"></i>Закрыть</button>
-                                <button type="button" class="btn btn-primary text-dark"
-                                    onclick="$('#calcModal').modal('hide'); scrollToAnchor('request');"><i
-                                        class="fas fa-check mr-1" title="Оставить заявку на евроремонт"></i>Оставить
-                                    заявку</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <!-- Request-->
-    <section class="page-section bg-white" id="request">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="contact_title section-heading text-uppercase">Оставьте заявку</h2>
-                <h3 class="contact_footer section-subheading text-muted">Мы быстро свяжемся с Вами!</h3>
-            </div>
-            <div class="errormessage alert alert-danger alert-dismissible fade text-center" role="alert">
-                <strong>К сожалению, произошла ошибка...</strong> Пожалуйста попробуйте еще раз.
-                <button type="button" class="close" aria-label="Close"
-                    onclick="$('.errormessage').removeClass('show');">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form id="contactForm" name="sentMessage" novalidate="novalidate">
-                <div class="row align-items-stretch mb-5 form-elements">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input class="form-control" id="name" name="name" type="text" placeholder="Ваше Ф.И.О. *"
-                                required="required"
-                                data-validation-required-message="Нам нужно знать как к вам обращаться." />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="form-group mb-md-0">
-                            <input class="form-control" id="phone" name="phone" type="tel"
-                                placeholder="Ваш номер телефона *" required="required"
-                                data-validation-required-message="Пожалуйста укажите ваш номер телефона." />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group form-group-textarea mb-md-0">
-                            <input style="height:92px;" class="form-control" id="message" name="message" type="text"
-                                placeholder="Дополнительная информация"></input>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center form-elements">
-                    <div id="success"></div>
-                    <button class="text-dark btn btn-primary btn-xl text-uppercase" id="sendRequest" type="submit"
-                        title="Оставить заявку на евроремонт">
-                        <span id="contact-button-text">Оставить заявку</span>
-                        <span id="contact-button-spin" class="spinner-border spinner-border-sm d-none" role="status"
-                            aria-hidden="true"></span>
-                    </button>
-                </div>
-            </form>
-            <div class="thankyou alert alert-warning alert-dismissible fade text-center" role="alert">
-                <strong>Спасибо за оставленную заявку!</strong> Мы рассмотрим ваш запрос очень скоро.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
         </div>
     </section>
@@ -718,10 +651,9 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Core theme JS-->
-    <script src="{{ url_for('static',filename='js/jqBootstrapValidation.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static',filename='js/contactMe.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static',filename='js/calculator.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static',filename='js/scripts.js') }}"></script>
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script type="text/javascript" src="js/calculator.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
 </body>
 
 </html>

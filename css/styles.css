@@ -5942,17 +5942,17 @@ a.close.disabled {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   background: no-repeat 50%/100% 100%;
 }
 
 .carousel-control-prev-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e");
 }
 
 .carousel-control-next-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
 }
 
 .carousel-indicators {
@@ -10019,7 +10019,7 @@ p {
   font-weight: 400;
   font-style: italic;
   font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  margin-bottom: 4rem;
+  /* margin-bottom: -4rem; */
 }
 
 .page-section h3.section-subheading-contacts {
@@ -10149,7 +10149,7 @@ header.masthead {
   padding-bottom: 2rem;
   text-align: center;
   color: #fff;
-  background:linear-gradient( rgba(0, 0, 0, .9), rgba(0, 0, 0, .4) ), url("../assets/img/header-bg.jpeg");
+  background:linear-gradient( rgba(0, 0, 0, .9), rgba(0, 0, 0, .4) ), url('../img/header-bg.jpeg');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -10453,12 +10453,6 @@ header.masthead .masthead-heading {
   margin-bottom: 1rem;
 }
 
-section#contact {
-  background-color: #212529;
-  background-image: url("../assets/img/map-image.png");
-  background-repeat: no-repeat;
-  background-position: center;
-}
 section#contact .section-heading {
   color: #fff;
 }
@@ -10526,14 +10520,20 @@ section#contact form#contactForm :-ms-input-placeholder {
   margin: 0 auto;
 }
 
+.list-group.x{
+  max-height: 37vh;
+  margin-bottom: 10px;
+  overflow:scroll;
+  -webkit-overflow-scrolling: touch;
+}
 
 .float{
 	position:fixed;
 	width:60px;
 	height:60px;
-	bottom:40px;
-	right:40px;
-	background-color: var(--primary);
+	bottom:10px;
+	right:10px;
+	background-color: var(--success);
 	color:#FFF;
 	border-radius:50px;
 	text-align:center;
@@ -10542,19 +10542,31 @@ section#contact form#contactForm :-ms-input-placeholder {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: large;
+  padding: 16.5px;
 
+  animation-delay: 4s;
   animation-name: example;
-  animation-duration: 3s;
+  animation-duration: 1s;
   animation-iteration-count: 2;
   animation-direction: alternate;
 }
 
 .my-float{
-  margin-top: 22px;
-  margin-left: 22px;
+  margin-top: 0px;
+  margin-left: 4px;
 }
 
 @keyframes example {
   from {width: 60px;}
-  to {width: 190px;}
+  to {width: 250px;}
+}
+
+.card img {
+  /* object-fit: none; */
+  object-fit: cover;
+  object-position: bottom; /* Center the image within the element */
+  width: 100%;
+  max-height: 200px;
+  margin-bottom: 1rem;
 }
